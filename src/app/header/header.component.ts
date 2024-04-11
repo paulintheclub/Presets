@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit{
   isMenuOpen = false;
   itemsCount!: number;
   private subscription: Subscription = new Subscription();
+  screenWidth!: number;
   constructor(private cartService: CartService) { }
   ngOnInit(): void {
     this.subscription.add(this.cartService.getItemsCount().subscribe(count => {
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit{
   }
     toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-      if (this.isMenuOpen ) {
+    this.screenWidth = window.innerWidth;
+      if (this.isMenuOpen && this.screenWidth < 680) {
 
     document.body.style.overflow = 'hidden';
   } else {

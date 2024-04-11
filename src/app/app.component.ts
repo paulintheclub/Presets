@@ -1,8 +1,8 @@
 import {Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {isPlatformBrowser} from "@angular/common";
 import {LoaderService} from "./services/loader.service";
-import {NavigationEnd, NavigationStart, Router} from "@angular/router";
-
+import {NavigationEnd, NavigationStart, Router, Scroll} from "@angular/router";
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,6 +19,12 @@ export class AppComponent {
         this.loaderService.hide();
       }
     });
+        this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      window.scrollTo(0, 0);
+    });
   }
+
 }
 
