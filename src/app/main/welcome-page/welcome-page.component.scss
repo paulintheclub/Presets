@@ -1,0 +1,91 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1e342a; // Предполагается серый фон, адаптируйте под ваш дизайн
+ // Регулируйте отступы в соответствии с вашим макетом
+  .welcome-part{
+    padding: 10px 60px 0 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  .text-part {
+    flex: 2;
+    span {
+    display: block; // Заставляет каждый span отображаться с новой строки
+    }
+    .title {
+      text-align: left;
+      font-size: 48px; // Большой заголовок
+      font-weight: bold;
+      color: white; // Цвет текста
+      margin-bottom: 20px;
+    }
+
+    .title-text {
+      font-size: 20px; // Размер текста описания
+      color: #c7c5c5; // Цвет описания
+      margin-bottom: 30px; // Расстояние до кнопки
+    }
+
+  }
+
+  .image-part {
+    flex:3;
+    img {
+      max-width: 100%; // Чтобы изображение было адаптивным
+      height: auto;
+    }
+  }
+}
+.sponsors{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .sponsors-text{
+    font-size: 14px; // Размер текста описания
+    color: #c7c5c5; // Цвет описания
+    margin:30px ;
+  }
+  .sponsors-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap:60px;
+    font-size: 20px;
+    margin:30px ;
+    font-weight: 700;
+  }
+}
+
+
+}
+@media screen and (max-width: 680px) {
+  .main-container {
+    .welcome-part{
+      justify-content: center;
+      align-items: center;
+      .text-part{
+        text-align: center;
+      }
+      span{
+        text-align: center;
+      }
+      .image-part{
+        display: none;
+      }
+    }
+    .sponsors{
+      .sponsors-links{
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+
+}

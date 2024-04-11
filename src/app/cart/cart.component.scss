@@ -1,0 +1,117 @@
+.cart-container {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 20px;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .cart-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+
+
+    .cart-items {
+      .cart-header {
+        display: grid;
+        grid-template-columns: 2fr 1fr 0.5fr;
+        font-weight: 600;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #E5E5E5;
+        margin-bottom: 20px;
+      }
+
+      .cart-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 0.5fr;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .product {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 10px;
+          }
+
+          span {
+            font-size: 20px;
+            color: #333333;
+            font-family: "Inter", sans-serif;
+            font-weight: 500;
+          }
+        }
+
+        span {
+          font-size: 20px;
+          color: #333333;
+        }
+
+        i {
+          font-size: 20px;
+          cursor: pointer;
+          color: #D9534F;
+        }
+      }
+    }
+
+    .cart-summary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #F9F9F9;
+      border: 1px solid #E5E5E5;
+      box-sizing: border-box;
+      border-radius: 4px;
+      height: auto;
+
+      .total-price {
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 16px;
+  color: #333333;
+  margin-top: 20px;
+}
+@media screen and (max-width: 680px) {
+  .cart-container {
+    .cart-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .cart-items{
+        .cart-row{
+          .product{
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 5px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="preset-card-component">
+  <div class="nav-history">
+    <span routerLink="/">Home</span>
+    <span>></span>
+    <span>...</span>
+    <span>></span>
+    <span routerLink="/presets">Shop</span>
+    <span>></span>
+    <span class="actual">{{preset?.name}}</span>
+  </div>
+<div class="image-comparison-container">
+  <img-comparison-slider>
+  <img slot="first" src="{{preset?.imageBefore}}" />
+  <img slot="second" src="{{preset?.imageAfter}}" />
+</img-comparison-slider>
+</div>
+  <div class="about-preset">
+      <span class="title">{{preset?.name}}</span>
+      <span class="title-text">{{preset?.description}}</span>
+      <span class="number-of-price">
+        {{preset?.price | currency}}
+      </span>
+    <span class="full-description">{{preset?.fullDescription}}</span>
+    <button class="button" (click)="addToCart()">
+      Add to cart
+    </button>
+    <div class="recommendation">
+      <p>Recommendations</p>
+      <span class="bold">
+            Light Conditions
+      </span>
+      <span>
+        VividSnap works best with well-lit images that have a good dynamic range.
+      </span>
+            <span class="bold">
+            Subjects
+      </span>
+      <span>
+         Ideal for urban and street photography, architectural shots, and landscapes.
+      </span>
+            <span class="bold">
+            Adjustments
+      </span>
+      <span>
+        After applying the preset, tweak the exposure, highlights, or shadows if necessary to suit the specific lighting conditions of your photo.
+      </span>
+            <span class="bold">
+           Experiment
+      </span>
+      <span>
+        Don’t hesitate to use it on a variety of images to see how it can transform different subjects and compositions.
+      </span>
+    </div>
+    <div *ngIf="showCopiedMessage" class="add-to-cart-message">Added to cart</div>
+  </div>
+
+</div>
+

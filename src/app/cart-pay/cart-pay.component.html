@@ -1,0 +1,80 @@
+<div class="cart-pay-container">
+<div class="cart-container">
+  <div class="cart-items" *ngFor="let item of items">
+  <div class="cart-item">
+    <img [src]="item.imageAfter" alt="FUTC Analog Vibes">
+    <div class="item-description">
+      <h4>{{ item.name }}</h4>
+      <p>FUTC</p>
+      <div class="quantity">Qty: 1</div>
+
+    </div>
+    <div class="right-part">
+    <div class="item-price">{{ item.price | currency }}</div>
+    <span class="remove" (click)="removeItem(item.id)">Remove</span>
+      </div>
+  </div>
+  </div>
+  <div class="cart-summary">
+    <div class="subtotal">
+      <span>Subtotal</span>
+      <span>{{ getTotal() | currency }}</span>
+    </div>
+    <div class="vat">
+      <span>VAT</span>
+      <span>{{ getTotal()/100*10 | currency }}</span>
+    </div>
+    <div class="discount-code">
+      <input type="text" placeholder="Discount code">
+      <button class="apply">Apply</button>
+    </div>
+    <div class="total">
+      <span>Total</span>
+      <span>{{ getTotal()+getTotal()/100*10 | currency }} </span>
+    </div>
+  </div>
+</div>
+  <div class="payment-form">
+    <div class="payment-options">
+  <button (click)="setActivePaymentMethod('card')" [ngClass]="{'active': activePaymentMethod === 'paypal'}">
+    <span class="button_top">Card</span>
+  </button>
+  <button (click)="setActivePaymentMethod('paypal')" [ngClass]="{'active': activePaymentMethod === 'card'}">
+    <span class="button_top">PayPal</span>
+  </button>
+    </div>
+    <form>
+      <div class="input-group" *ngIf="activePaymentMethod === 'card'">
+        <label for="name-on-card">Name on card</label>
+        <input type="text" id="name-on-card" placeholder="John Doe">
+        <div class="save-card">
+          <input type="checkbox" id="save-card">
+          <label for="save-card">Save card</label>
+        </div>
+      </div>
+      <div class="input-group" *ngIf="activePaymentMethod === 'card'">
+        <label for="card-number">Card information</label>
+        <input type="text" id="card-number" placeholder="Card number">
+        <input type="text" id="card-expiry" placeholder="MM / YY">
+        <input type="text" id="card-cvv" placeholder="CVV">
+      </div>
+      <div class="input-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="Email">
+      </div>
+      <div class="input-group">
+        <label for="country">Country</label>
+        <select id="country">
+          <option value="slovakia">Slovakia</option>
+
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="vat-id">Business VAT ID (optional)</label>
+        <input type="text" id="vat-id" placeholder="Business VAT ID (optional)">
+      </div>
+      <button type="submit" class="pay-button">Pay</button>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,84 @@
+<div class="guide-container">
+  <div class="instruction">
+      <span class="title">Usage Instructions</span>
+      <span class="title-text">Usage Instructions</span>
+      <div class="different-devices">
+        <div class="device mobile" *ngIf="showMobile" [attr.data-aos]="showMobile ? 'fade-left' : 'fade-right'">
+          <span class="title">
+              For Lightroom Mobile (DNG File Format)
+            </span>
+          <span class="text bold">
+              Download Preset
+          </span>
+          <span class="text">
+            Begin by downloading the DNG file containing the VividSnap preset to your mobile device.
+          </span>
+          <span class="text bold">
+            Import to Lightroom Mobile
+          </span>
+          <span class="text">
+            Open Adobe Lightroom Mobile and create a new album. In this album, tap the '+' sign and choose 'Add Photos' to import the DNG file.
+          </span>
+          <span class="text bold">
+            Create Preset
+          </span>
+          <span class="text">
+           Open the DNG file in the album, tap on the three dots in the upper right corner, and select 'Create Preset'.
+          </span>
+          <span class="text bold">
+            Name Your Preset
+          </span>
+          <span class="text">
+            Give your preset a name, for example, 'VividSnap', and save it in a preset group of your choice for easy access.
+          </span>
+          <span class="text bold">
+            Apply Preset
+          </span>
+          <span class="text">
+            To apply the preset, simply navigate to the photo you wish to edit, scroll to 'Presets' at the bottom, and select 'VividSnap' from your list of presets.
+          </span>
+
+        </div>
+        <div class="device desktop" *ngIf="!showMobile" [attr.data-aos]="!showMobile ? 'fade-right' : 'fade-left'">
+          <span class="title">
+                For Lightroom Desktop (XMP File Format)
+            </span>
+          <span class="text bold">
+              Download Preset
+          </span>
+          <span class="text">
+            Save the XMP file to your computer.
+          </span>
+          <span class="text bold">
+            Open Lightroom
+          </span>
+          <span class="text">
+            Launch Adobe Lightroom Desktop.
+          </span>
+          <span class="text bold">
+            Install Preset
+          </span>
+          <span class="text">
+           Go to the 'Develop' module, find the 'Presets' panel on the left side, click on the '+' icon, and select 'Import Presets'.
+          </span>
+          <span class="text bold">
+            Navigate and Select
+          </span>
+          <span class="text">
+            Find where you saved the XMP file on your computer, select it, and click 'Import'.
+          </span>
+          <span class="text bold">
+            Apply Preset
+          </span>
+          <span class="text">
+            The VividSnap preset will now appear in your 'Presets' panel. To use it, just click on the preset name when you're in the 'Develop' module editing a photo.
+          </span>
+        </div>
+      </div>
+    <button class="button" (click)="toggleDevices()">Switch Device View</button>
+    </div>
+   <div data-aos="fade-up" class="image-part">
+    <img src="assets/lightroom.png" alt="Lightroom">
+    </div>
+</div>
+

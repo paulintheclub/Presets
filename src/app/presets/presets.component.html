@@ -1,0 +1,35 @@
+<div class="presets-container">
+  <div class="title">
+    <span class="text-over-title">
+      My Services
+    </span>
+    <span class="text-title">
+      Stunning Presets
+    </span>
+    <span class="text-under-title">
+      Enhance your photographs with professional presets
+    </span>
+  </div>
+  <swiper-container slides-per-view="4" navigation="true" pagination="true" space-between="30" style="width: 70%" id="full-screen">
+    <swiper-slide *ngFor="let preset of presets">
+    <div routerLink="/preset-card" class="preset" (click)="onPresetSelected(preset)" >
+      <img [src]="preset.imageAfter" [alt]="preset.name" class="preset-img">
+      <span class="name">{{preset.name}}</span>
+      <span>{{preset.description}}</span>
+      <span>{{preset.price | currency}}</span>
+    </div>
+      </swiper-slide>
+  </swiper-container>
+    <swiper-container slides-per-view="1" navigation="true" pagination="true" space-between="30" style="width: 100%" id="small-screen">
+    <swiper-slide *ngFor="let preset of presets">
+    <div  class="preset" >
+      <img [src]="preset.imageAfter" [alt]="preset.name" class="preset-img" routerLink="/preset-card" (click)="onPresetSelected(preset)">
+      <span class="name">{{preset.name}}</span>
+      <span>{{preset.description}}</span>
+      <span>{{preset.price | currency}}</span>
+    </div>
+      </swiper-slide>
+  </swiper-container>
+</div>
+
+
