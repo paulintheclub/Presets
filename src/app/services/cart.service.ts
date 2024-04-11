@@ -14,15 +14,12 @@ export class CartService {
   }
 
   addToCart(item: Preset) {
-    // Проверяем, существует ли уже этот пресет в корзине
     const existingItem = this.items.find(preset => preset.id === item.id);
     if (!existingItem) {
       this.items.push(item);
-      // Обновляем localStorage после добавления нового элемента
       localStorage.setItem('cart', JSON.stringify(this.items));
       this.updateItemsCount();
     } else {
-      // Товар уже в корзине, можно уведомить пользователя
       alert("This item is already in your cart.");
     }
   }
@@ -33,7 +30,6 @@ export class CartService {
     return this.items.reduce((total, item) => total + item.price, 0);
   }
 
-// В CartService
 
   removeItem(itemId: number) {
     this.items = this.items.filter(item => item.id !== itemId);
@@ -52,10 +48,10 @@ export class CartService {
     return this.itemsCount.asObservable();
   }
   private updateItemsCount() {
-    this.itemsCount.next(this.items.length); // Уведомляем подписчиков об изменении
+    this.itemsCount.next(this.items.length);
   }
 private loadCart() {
-  if (typeof window !== 'undefined') { // Проверяем, что код выполняется в браузере
+  if (typeof window !== 'undefined') {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
       this.items = JSON.parse(savedCart);

@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit{
   }
     toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-      if (this.isMenuOpen) {
+      if (this.isMenuOpen ) {
 
     document.body.style.overflow = 'hidden';
   } else {
