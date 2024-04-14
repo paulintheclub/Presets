@@ -24,10 +24,11 @@ export class PresetsService{
       description: 'Unique Angle Captures',
       price: 54
     },
+
         {
       id: 3,
-      imageAfter: 'https://i.imgur.com/bro7l7F.jpg',
-      imageBefore:'https://i.imgur.com/bro7l7F.jpg',
+      imageAfter: 'https://i.imgur.com/ErPDQix.jpg',
+      imageBefore:'https://i.imgur.com/y9QzY3u.jpg',
       name: 'Iconic Landscapes',
       description: 'Personalized Photoshoots',
       price: 78

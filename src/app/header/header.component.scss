@@ -32,6 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s ease-in-out, font-weight 0.2s ease;
+    cursor: pointer;
 
     p {
       font-family: "Bebas Neue", sans-serif;
@@ -42,7 +44,21 @@
 
 
       &:hover {
-        color: #007bff;
+        color: #9a9a9a;
+        transform: translateY(-2px);
+      }
+      &:active {
+        color: #545454;
+        transform: translateY(2px);
+      }
+      img {
+        &:hover {
+        filter: brightness(70%);
+      }
+        &:active {
+        filter: brightness(50%);
+      }
+
       }
 
     }
@@ -69,7 +85,13 @@
   font-size: 15px;
   color: black;
 }
-
+.active-link {
+  color: #9a9a9a;
+  text-decoration: underline;
+  img {
+    filter: brightness(70%);
+  }
+  }
   }
 
   .menu-icon{
@@ -119,7 +141,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 70px;
+      height: 60px;
       padding-right: 0;
       padding-left: 0;
       flex-direction: row;
@@ -128,6 +150,12 @@
       background-color: #1e342a;
       box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
       z-index: 995;
+      .outer-cart{
+        border: 6px solid #1e342a;
+        background-color: #3a4641;
+        border-radius: 50%;
+        padding: 10px;
+        margin: -10px 0 0 0;
       .cart {
         text-align: center;
         display: flex;
@@ -138,12 +166,22 @@
         position: relative;
         margin: 0;
       }
+        }
       .nav-icon{
         font-size: 30px;
         color: #c7c5c5;
+        &:hover {
+          color: #9a9a9a;
+          transform: translateY(-2px);
+        }
+        &:active {
+          color: #545454;
+          transform: translateY(2px);
+        }
+
       }
       .cart img {
-        height: 40px;
+        height: 45px;
       }
 
       .cart-counter {
@@ -155,6 +193,14 @@
         padding: 0 6px;
         font-size: 15px;
         color: black;
+      }
+      .active-link {
+        i{
+          color: #9a9a9a;
+        }
+      img {
+        filter: brightness(70%);
+      }
       }
   }
   }

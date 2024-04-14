@@ -4,11 +4,11 @@
     <p>Lenscape</p>
   </div>
   <div class="nav-links" [ngClass]="{'show': isMenuOpen}">
-    <p routerLink="/" (click)="toggleMenu()">Home</p>
-    <p routerLink="/about" (click)="toggleMenu()">About</p>
-    <p routerLink="/guide" (click)="toggleMenu()">Guide</p>
-    <p routerLink="/presets" (click)="toggleMenu()">Shop</p>
-    <p class="cart" routerLink="/cart" (click)="toggleMenu()">
+    <p routerLink="/main" [class.active-link]="isActive('/main')" (click)="toggleMenu()">Home</p>
+    <p routerLink="/about" routerLinkActive="active-link" (click)="toggleMenu()">About</p>
+    <p routerLink="/guide" routerLinkActive="active-link" (click)="toggleMenu()">Guide</p>
+    <p routerLink="/presets" routerLinkActive="active-link" (click)="toggleMenu()">Shop</p>
+    <p class="cart" routerLink="/cart" routerLinkActive="active-link" (click)="toggleMenu()">
       <img src="https://i.imgur.com/aNaF1G0.png" alt="Cart">
       <span class="cart-counter" *ngIf="itemsCount > 0">{{ itemsCount }}</span>
     </p>
@@ -17,20 +17,22 @@
       <i class="fas fa-bars"></i>
     </div>
   <div class="header-for-cart">
-    <div class="nav-icon" routerLink="/">
+    <div class="nav-icon" routerLink="/main" [class.active-link]="isActive('/main')">
       <i class="fa-solid fa-house"></i>
     </div>
-        <div class="nav-icon" routerLink="/presets">
+        <div class="nav-icon" routerLink="/presets" routerLinkActive="active-link">
       <i class="fa-solid fa-camera-retro"></i>
     </div>
-        <div class="cart" routerLink="/cart">
+      <div class="outer-cart">
+        <div class="cart" routerLink="/cart" routerLinkActive="active-link">
       <img src="https://i.imgur.com/aNaF1G0.png" alt="Cart">
       <span class="cart-counter" *ngIf="itemsCount > 0">{{ itemsCount }}</span>
     </div>
-        <div class="nav-icon" routerLink="/guide">
+      </div>
+        <div class="nav-icon" routerLink="/guide" routerLinkActive="active-link">
       <i class="fa-solid fa-chalkboard-user"></i>
     </div>
-        <div class="nav-icon" routerLink="/about">
+        <div class="nav-icon" routerLink="/about" routerLinkActive="active-link">
       <i class="fa-regular fa-user"></i>
     </div>
   </div>

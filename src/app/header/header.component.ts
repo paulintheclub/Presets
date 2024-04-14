@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {CartService} from "../services/cart.service";
 import { Subscription } from 'rxjs';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit{
   itemsCount!: number;
   private subscription: Subscription = new Subscription();
   screenWidth!: number;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private location: Location) { }
   ngOnInit(): void {
     this.subscription.add(this.cartService.getItemsCount().subscribe(count => {
       this.itemsCount = count;
@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit{
 
     document.body.style.overflow = 'auto';
   }
+  }
+    isActive(path: string): boolean {
+    const currentPath = this.location.path() || '/main';
+    return currentPath === path;
   }
 
 }
